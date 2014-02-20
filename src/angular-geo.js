@@ -78,7 +78,7 @@
                  * Check does the device support geolocation.
                  * @return {Boolean}
                  */
-                function hasGeoSupport() {
+                function isSupported() {
                     return ($window.navigator && $window.navigator.geolocation ? true : false);
                 }
 
@@ -98,7 +98,7 @@
                         timeout = null;
                     }
 
-                    if (hasGeoSupport() === true) {
+                    if (isSupported() === true) {
                         $window.navigator.geolocation.getCurrentPosition(success(callback), fail(callback), {
                             enableHighAccuracy: accurately,
                             timeout: timeout || GEOLOCATION_DEFAULTS.TIMEOUT,
@@ -110,6 +110,11 @@
                         return callback(GEOLOCATION_ERRORS.NO_SUPPORT, null);
                     }
                 }
+
+
+                // Export these methods and data for use
+                this.ERRORS = GEOLOCATION_ERRORS;
+                this.isSupported = isSupported;
 
 
                 /**

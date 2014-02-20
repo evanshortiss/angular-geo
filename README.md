@@ -1,6 +1,8 @@
 # Angular Geolocation
 
-A simple wrapper for accessing geolocation features within AngularJS.
+A simple wrapper for accessing geolocation features within AngularJS. 
+
+I've just started this so it's still a work in progress.
 
 ## Tests
 Need to write tests.
