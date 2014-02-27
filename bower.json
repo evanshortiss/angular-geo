@@ -1,0 +1,27 @@
+{
+  "name": "angular-geo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/evanshortiss/angular-geo",
+  "authors": [
+    "Evan Shortiss <evanshortiss@gmail.com>"
+  ],
+  "description": "Geolocation library for AngularJS",
+  "main": "src/angular-geo.js",
+  "keywords": [
+    "geo",
+    "geolocation",
+    "angular-geo",
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "~1.2.13"
+  }
+}

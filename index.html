@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html ng-app="GeoTest">
+  <head>
+    <title>Geolocation Test</title>
+  </head>
+
+  <body ng-controller="AppCtrl">
+    <p>Geolocation Supported: {{geoLocationSupport}}</p>
+
+    <button ng-click="getFinePosition()">Get Accurate Location</button>
+    <button ng-click="getCoarsePosition()">Get Coarse Location</button>
+
+    <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="./src/angular-geo.js"></script>
+
+    <script type="text/javascript">
+      angular.module('GeoTest', ['Geolocation']).config(function() {
+
+      });
+
+      angular.module('GeoTest').controller('AppCtrl', function($scope, Geolocation) {
+        function geocb(err, res) {
+          if(err) {
+            alert(err);
+          } else {
+            alert(JSON.stringify(res));
+          }
+        }
+
+        $scope.geoLocationSupport = Geolocation.isSupported();
+
+        $scope.getCoarsePosition = function() {
+          Geolocation.getCoarsePosition(geocb);
+        };
+
+        $scope.getFinePosition = function() {
+          Geolocation.getFinePosition(geocb);
+        }
+      });
+
+      angular.module('GeoTest').run(function() {
+        
+      });
+    </script>
+  </body>
+</html>

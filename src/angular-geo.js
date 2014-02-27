@@ -3,7 +3,7 @@
 (function (angular) {
     'use strict';
 
-    angular.module('geolocation', []).constant('GEOLOCATION_ERRORS', {
+    angular.module('Geolocation', []).constant('GEOLOCATION_ERRORS', {
         1: 'PERMISSION_DENIED',
         2: 'POSITION_UNAVAILABLE',
         3: 'TIMEOUT',
@@ -11,16 +11,15 @@
     });
 
 
-    angular.module('geolocation', []).constant('GEOLOCATION_DEFAULTS', {
+    angular.module('Geolocation').constant('GEOLOCATION_DEFAULTS', {
         TIMEOUT: (20 * 1000),
         MAX_AGE: (10 * 1000)
     });
 
 
-    angular.module('geolocation')
-        .service('geolocation', ['$rootScope', '$window', 'GEOLOCATION_ERRORS', 'GEOLOCATION_DEFAULTS',
+    angular.module('Geolocation')
+        .service('Geolocation', ['$rootScope', '$window', 'GEOLOCATION_ERRORS', 'GEOLOCATION_DEFAULTS',
             function ($rootScope, $window, GEOLOCATION_ERRORS, GEOLOCATION_DEFAULTS) {
-
                 /**
                  * Callback to fire if geolocation fails.
                  * Is this a nasty pattern...?
@@ -53,8 +52,7 @@
                     return function (position) {
 
                         $rootScope.$apply(function () {
-
-                            if (position && position.coords && position.coords.timestamp) {
+                            if (position && position.timestamp) {
                                 // Add timestamp to the coords object for consistency
                                 position.coords.timestamp = position.timestamp;
                             }
